@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+
+# Build output
+dist/
+dist-ssr/
+
+# Local dev files
+*.local
+
+# Editor
+.vscode/*
+!.vscode/settings.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment secrets
+.env
+.env.local
+.env.production
+
+# Vite
+*.tsbuildinfo
+
+# Agent files (optional: remove if you want to track)
+.agent/
