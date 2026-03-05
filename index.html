@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FaceSign PJ — Calculadora</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="bg-slate-950 text-slate-50 min-h-screen">
+    <div id="app" class="max-w-6xl mx-auto px-4 py-8 md:py-16">
+        <!-- Header -->
+        <header class="mb-14 text-center md:text-left flex flex-col md:flex-row md:items-end gap-4 justify-between">
+            <div>
+                <div class="flex items-center gap-3 mb-3 justify-center md:justify-start">
+                    <div class="w-12 h-12 flex items-center justify-center">
+                        <img src="/logo.png" alt="FaceSign Logo" class="w-full h-full object-contain">
+                    </div>
+                    <h1 class="font-display text-3xl md:text-4xl font-bold tracking-tight">
+                        FaceSign <span class="text-brand-cyan">PJ</span>
+                    </h1>
+                </div>
+                <p class="text-slate-400 text-lg max-w-md">Calculadora inteligente de horas e ganhos para os
+                    Colaboradores FaceSign.</p>
+            </div>
+            <div class="hidden md:block">
+                <span
+                    class="text-[10px] uppercase font-bold tracking-widest text-brand-cyan bg-brand-cyan/10 px-3 py-1 rounded-full border border-brand-cyan/20">Versão
+                    1.0</span>
+            </div>
+        </header>
+
+        <!-- Main Layout -->
+        <main class="grid grid-cols-1 lg:grid-cols-[1fr_350px] gap-8">
+
+            <!-- Left Column: Content & Tabs -->
+            <div class="space-y-8">
+                <!-- Navigation Tabs -->
+                <nav class="flex border-b border-slate-800 overflow-x-auto no-scrollbar">
+                    <button id="tab-gain" class="tab-active px-6 py-4 whitespace-nowrap">Ganhos no Mês</button>
+                    <button id="tab-meta" class="tab-inactive px-6 py-4 whitespace-nowrap">Meta de Faturamento</button>
+                    <button id="tab-calendar" class="tab-inactive px-6 py-4 whitespace-nowrap">Calendário &
+                        Ajustes</button>
+                </nav>
+
+                <!-- Tab Content Containers -->
+                <section id="content-gain" class="tab-content transition-all duration-300"></section>
+                <section id="content-meta" class="tab-content hidden transition-all duration-300"></section>
+                <section id="content-calendar" class="tab-content hidden transition-all duration-300"></section>
+            </div>
+
+            <!-- Right Column: Summary Card (Sticky) -->
+            <aside class="space-y-6">
+                <div id="summary-card"
+                    class="glass sticky top-8 p-6 rounded-3xl space-y-6 shadow-xl shadow-brand-cyan/5">
+                    <h3 class="font-display text-xl font-bold">Resumo Geral</h3>
+
+                    <div class="space-y-1">
+                        <span class="text-xs font-medium uppercase tracking-wider text-slate-500">Mês Selecionado</span>
+                        <p id="current-month-display" class="text-lg font-semibold capitalize">—</p>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4 border-t border-slate-800 pt-6">
+                        <div class="space-y-1">
+                            <span class="text-xs font-medium uppercase text-slate-500">Dias Totais</span>
+                            <p id="total-days-display" class="text-xl font-bold">0</p>
+                        </div>
+                        <div class="space-y-1">
+                            <span class="text-xs font-medium uppercase text-slate-500">Horas Totais</span>
+                            <p id="total-hours-display" class="text-xl font-bold">0h</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-brand-cyan/10 border border-brand-cyan/20 p-4 rounded-2xl space-y-1">
+                        <span class="text-xs font-medium uppercase text-brand-cyan">Estimativa Total</span>
+                        <p id="total-value-display" class="text-3xl font-bold text-brand-cyan">R$ 0,00</p>
+                    </div>
+
+                    <button id="export-summary"
+                        class="w-full bg-slate-100 text-slate-950 font-semibold py-3 rounded-lg hover:bg-white transition-colors flex items-center justify-center gap-2">
+                        <i data-lucide="download" class="w-5 h-5"></i>
+                        Exportar Resumo
+                    </button>
+                </div>
+            </aside>
+        </main>
+
+        <!-- Footer / Mini Resumo Mobile (Fixed) -->
+        <div id="mobile-summary"
+            class="lg:hidden fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] glass px-6 py-4 rounded-full flex items-center justify-between shadow-2xl z-50">
+            <div>
+                <span class="text-[10px] uppercase font-bold text-brand-cyan">Total Est.</span>
+                <p id="mobile-total-display" class="text-lg font-bold">R$ 0,00</p>
+            </div>
+            <div class="text-right">
+                <span class="text-[10px] uppercase font-bold text-slate-500">Horas</span>
+                <p id="mobile-hours-display" class="text-lg font-bold text-slate-300">0h</p>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

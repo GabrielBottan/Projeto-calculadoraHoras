@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+@theme {
+    --color-brand-navy: #0E1B31;
+    --color-brand-cyan: #1FB5FF;
+    --color-primary: var(--color-brand-cyan);
+    --color-secondary: var(--color-brand-navy);
+
+    --font-sans: "Inter", system-ui, sans-serif;
+    --font-display: "Outfit", sans-serif;
+}
+
+:root {
+    color-scheme: dark;
+}
+
+body {
+    @apply bg-slate-950 text-slate-50 font-sans selection:bg-brand-cyan/30;
+}
+
+.glass {
+    @apply bg-brand-navy/50 backdrop-blur-md border border-slate-800/50;
+}
+
+.tab-active {
+    @apply border-b-2 border-brand-cyan text-brand-cyan font-medium;
+}
+
+.tab-inactive {
+    @apply text-slate-400 hover:text-slate-200;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
